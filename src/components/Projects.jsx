@@ -1,3 +1,4 @@
+import MainLayout from '../components/MainLayout.astro';
 export default function Projects() {
   return (
     <section id="projects" className="py-16">

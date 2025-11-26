@@ -1,3 +1,4 @@
+import MainLayout from '../components/MainLayout.astro';
 export default function Hero() {
   return (
     <section className="text-center py-20">

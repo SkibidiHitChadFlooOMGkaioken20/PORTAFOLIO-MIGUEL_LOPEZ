@@ -1,3 +1,4 @@
+import MainLayout from '../components/MainLayout.astro';
 export default function About() {
   return (
     <section id="about" className="py-16">

@@ -1,3 +1,4 @@
+import MainLayout from '../components/MainLayout.astro';
 export default function Contact() {
   return (
     <section id="contact" className="py-16 text-center">

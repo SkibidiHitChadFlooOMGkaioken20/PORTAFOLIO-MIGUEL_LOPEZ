@@ -1,52 +1,14 @@
----
-import MiBoton from '../components/ReactComponents/MiBoton.jsx';
----
+import MainLayout from '../components/MainLayout.astro';
+import Hero from '../components/Hero.jsx';
+import About from '../components/About.jsx';
+import Skills from '../components/Skills.jsx';
+import Projects from '../components/Projects.jsx';
+import Contact from '../components/Contact.jsx';
 
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio de Miguel – DAM</title>
-  </head>
-
-  <body style="font-family: system-ui, sans-serif; line-height: 1.6; margin: 2rem; background-color: #f9fafb; color: #111827;">
-    <main style="max-width: 800px; margin: auto;">
-      <h1 style="font-size: 2rem; color: #2563eb;">Miguel [Tu Apellido]</h1>
-      <p><strong>Estudiante de 2º de Desarrollo de Aplicaciones Multiplataforma (DAM)</strong></p>
-      <p><a href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a> · 
-         <a href="https://github.com/tunombre" target="_blank">GitHub</a> · 
-         <a href="https://linkedin.com/in/tuperfil" target="_blank">LinkedIn</a>
-      </p>
-
-      <h2>💡 Sobre mí</h2>
-      <p>
-        Soy estudiante de segundo curso del ciclo superior de Desarrollo de Aplicaciones Multiplataforma (DAM), con interés en aplicar mis conocimientos en programación y gestión de datos dentro de entornos empresariales reales. Me motiva especialmente la automatización de procesos, la digitalización industrial y el desarrollo de herramientas de gestión interna que mejoren la eficiencia y el control en las operaciones de una empresa como Fruveco S.A.
-      </p>
-
-      <h2>🧠 Conocimientos técnicos</h2>
-      <ul>
-        <li>Lenguajes: Java, Kotlin, C#, Python, JavaScript</li>
-        <li>Bases de datos: MySQL, SQLite, SQL Server</li>
-        <li>Desarrollo multiplataforma: JavaFX, .NET MAUI, Android (Kotlin)</li>
-        <li>Web: HTML, CSS, JavaScript, frameworks básicos (React/Angular)</li>
-        <li>Control de versiones: Git y GitHub</li>
-        <li>Metodologías: POO, SOLID, Scrum</li>
-      </ul>
-
-      <h2>🏭 Aplicaciones prácticas para Fruveco S.A.</h2>
-      <ul>
-        <li>Automatización de procesos internos (stock, trazabilidad, gestión de lotes)</li>
-        <li>Desarrollo de paneles de control y aplicaciones internas</li>
-        <li>Optimización de bases de datos e informes de producción</li>
-        <li>Apoyo a digitalización industrial y conexión de sistemas ERP/CRM/SCADA</li>
-      </ul>
-
-      <h2>🚀 Objetivo profesional</h2>
-      <p>
-        Mi objetivo es integrarme en un entorno industrial tecnológicamente avanzado donde pueda contribuir con soluciones de software personalizadas, aprender de los equipos de ingeniería y seguir desarrollando mis habilidades en programación aplicada al mundo real.
-      </p>
-
-      <MiBoton client:load />
-    </main>
-  </body>
-</html>
+<MainLayout title="Miguel López - Portafolio">
+  <Hero client:load />
+  <About client:load />
+  <Skills client:load />
+  <Projects client:load />
+  <Contact client:load />
+</MainLayout>

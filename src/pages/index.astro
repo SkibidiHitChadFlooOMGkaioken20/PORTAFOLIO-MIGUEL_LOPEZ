@@ -7,10 +7,10 @@ import Projects from '../components/Projects.jsx';
 import Contact from '../components/Contact.jsx';
 ---
 
-<MainLayout title="Miguel López - Portafolio">
+<MainLayout title="Portafolio - Miguel López">
   <Hero client:load />
-  <About client:load />
-  <Skills client:load />
-  <Projects client:load />
-  <Contact client:load />
+  <About client:visible />
+  <Skills client:visible />
+  <Projects client:visible />
+  <Contact client:visible />
 </MainLayout>

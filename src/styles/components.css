@@ -1,0 +1,213 @@
+/* HERO */
+
+.hero-section {
+    position: relative;
+    height: 85vh; /* h-[85vh] */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden; /* Para contener el blur */
+}
+
+/* Fondo de Gradiente Abstracto (absolute inset-0 bg-gradient-to-br...) */
+.hero-gradient-blur {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to bottom right, 
+        rgba(37, 99, 235, 0.2), /* from-blue-600/20 */
+        rgba(147, 51, 234, 0.2)  /* to-purple-600/20 */
+    );
+    filter: blur(3rem); /* blur-3xl */
+    opacity: 0.3; /* opacity-30 */
+}
+
+/* Contenido Principal (relative z-10 max-w-3xl px-6) */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 48rem; /* max-w-3xl */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; /* px-6 */
+}
+
+/* Título principal (h1) */
+.hero-title {
+    font-size: 3rem; /* text-5xl */
+    font-weight: 700;
+    line-height: 1.25; /* leading-tight */
+}
+
+/* Media Query para escritorio (md:text-6xl) */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.75rem; /* text-6xl */
+    }
+}
+
+/* Span con Gradiente de Portafolio (bg-clip-text text-transparent bg-gradient-to-r...) */
+.hero-gradient-text {
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, 
+        var(--color-blue-light), /* from-blue-400 */
+        var(--color-purple-light) /* to-purple-400 */
+    );
+}
+
+/* Subtítulo (mt-6 text-gray-300 text-lg) */
+.hero-subtitle {
+    margin-top: 1.5rem; /* mt-6 */
+    color: var(--text-light); /* text-gray-300 */
+    font-size: 1.125rem; /* text-lg */
+}
+
+/* Botón (inline-block mt-8 px-6 py-3 rounded-xl bg-blue-600...) */
+.hero-button {
+    display: inline-block;
+    margin-top: 2rem; /* mt-8 */
+    padding: 0.75rem 1.5rem; /* px-6 py-3 */
+    border-radius: 0.75rem; /* rounded-xl */
+    background-color: var(--color-blue); /* bg-blue-600 */
+    color: var(--text-primary);
+    font-weight: 600; /* font-semibold */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    transition: background-color 0.15s ease-in-out; /* transition */
+    text-decoration: none;
+}
+
+.hero-button:hover {
+    background-color: var(--color-blue-hover); /* hover:bg-blue-500 */
+}
+
+/* PROJECTS */
+
+/* Título (mb-10) */
+.projects-title {
+    margin-bottom: 2.5rem; /* mb-10 */
+}
+
+/* Grid (grid md:grid-cols-3 gap-8) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Columna única por defecto */
+    gap: 2rem; /* gap-8 */
+}
+
+/* Media Query para tablet/escritorio (md:grid-cols-3) */
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Tarjeta (p-6 bg-white/5 border border-white/10 rounded-xl shadow-xl backdrop-blur transform-gpu) */
+.project-card {
+    padding: 1.5rem; /* p-6 */
+    background-color: var(--bg-card); /* bg-white/5 */
+    border: 1px solid var(--border-card); /* border border-white/10 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 20px 25px -5px var(--shadow-base), 0 8px 10px -6px var(--shadow-base); /* shadow-xl */
+    backdrop-filter: blur(8px); /* backdrop-blur */
+    transform-style: preserve-3d; /* transform-gpu */
+    cursor: pointer;
+}
+
+/* Título de Tarjeta (text-xl font-semibold mb-2) */
+.project-card h3 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+/* Descripción de Tarjeta (text-white/80) */
+.project-card p {
+    color: rgba(255, 255, 255, 0.8); /* text-white/80 */
+}
+
+/* SKILLS */
+
+/* Título (mb-10) */
+.skills-title {
+    margin-bottom: 2.5rem; /* mb-10 */
+}
+
+/* Grid (grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+    gap: 1.5rem; /* gap-6 */
+}
+
+/* Media Query para tablet (md:grid-cols-3) */
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Media Query para escritorio grande (lg:grid-cols-6) */
+@media (min-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+}
+
+/* Tarjeta de Habilidad (p-6 bg-white/5 border border-white/10... text-center text-lg font-medium) */
+.skill-card {
+    padding: 1.5rem; /* p-6 */
+    background-color: var(--bg-card); /* bg-white/5 */
+    border: 1px solid var(--border-card); /* border border-white/10 */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 20px 25px -5px var(--shadow-base), 0 8px 10px -6px var(--shadow-base); /* shadow-xl */
+    backdrop-filter: blur(8px); /* backdrop-blur */
+    transform-style: preserve-3d; /* transform-gpu */
+    text-align: center;
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 500; /* font-medium */
+    cursor: pointer;
+}
+
+/* CONTACT */
+
+/* Título (mb-6) */
+.contact-title {
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+/* Formulario (max-w-xl space-y-4) */
+.contact-form {
+    max-width: 36rem; /* max-w-xl */
+    margin-left: auto; /* Para centrarlo */
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* space-y-4 */
+}
+
+/* Input/Textarea (w-full bg-white/10 border border-white/20 p-3 rounded-lg) */
+.contact-input {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1); /* bg-white/10 */
+    border: 1px solid var(--border-input); /* border border-white/20 */
+    padding: 0.75rem; /* p-3 */
+    border-radius: 0.5rem; /* rounded-lg */
+    color: var(--text-primary);
+}
+
+.contact-input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Botón (px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-lg) */
+.contact-button {
+    padding: 0.75rem 1.5rem; /* px-6 py-3 */
+    background-color: var(--color-purple); /* bg-purple-600 */
+    color: var(--text-primary);
+    font-weight: 600; /* font-semibold */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px var(--shadow-base), 0 4px 6px -2px var(--shadow-base); /* shadow-lg */
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease-in-out; /* Para que la animación de Framer funcione bien */
+}

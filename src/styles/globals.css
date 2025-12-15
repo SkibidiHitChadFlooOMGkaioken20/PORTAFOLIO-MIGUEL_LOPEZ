@@ -1,0 +1,188 @@
+/* =====================================
+   1. VARIABLES DE COLOR Y ESTILOS BASE
+   ===================================== */
+:root {
+    /* Fondos */
+    --bg-dark: #1f2937;          /* gray-800 */
+    --bg-extradark: #0a0a0a;     /* gray-950 */
+    --bg-card: rgba(255, 255, 255, 0.05); /* white/5 */
+
+    /* Bordes y Sombras */
+    --border-card: rgba(255, 255, 255, 0.1); /* white/10 */
+    --border-input: rgba(255, 255, 255, 0.2); /* white/20 */
+    --shadow-base: rgba(0, 0, 0, 0.1); /* shadow-lg */
+
+    /* Texto */
+    --text-primary: #ffffff;     /* white */
+    --text-secondary: #9ca3af;   /* gray-400 */
+    --text-light: #d1d5db;       /* gray-300 */
+
+    /* Colores de Marca */
+    --color-purple: #9333ea;     /* purple-600 */
+    --color-blue: #2563eb;       /* blue-600 */
+    --color-blue-hover: #3b82f6; /* blue-500 */
+    --color-blue-light: #60a5fa; /* blue-400 */
+    --color-purple-light: #c084fc; /* purple-400 */
+}
+
+/* =====================================
+   2. ESTILOS DE RESET Y TIPOGRAFÍA
+   ===================================== */
+* {
+    box-sizing: border-box;
+    /* Fuente: Añadida en MainLayout.astro (Inter) */
+}
+
+/* Aplicar fondo y texto base del modo oscuro */
+html {
+    /* El modo oscuro está gestionado por el script, pero definimos la base */
+    background-color: var(--bg-extradark); /* bg-gray-950 */
+    color: var(--text-primary);
+}
+
+body {
+    margin: 0;
+    line-height: 1.5;
+    /* Ajustes para evitar el desborde horizontal (del problema anterior) */
+    overflow-x: hidden;
+}
+
+/* =====================================
+   3. CLASES REUTILIZABLES (Contenedores/Titulos)
+   ===================================== */
+
+/* .container mx-auto px-6 py-24 */
+.section-container {
+    max-width: 80rem; /* container */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem; /* px-6 */
+    padding-top: 6rem;   /* py-24 */
+    padding-bottom: 6rem; /* py-24 */
+}
+
+/* Títulos principales (h2, h3) */
+.text-4xl { font-size: 2.25rem; }
+.text-5xl { font-size: 3rem; }
+.text-6xl { font-size: 3.75rem; }
+.text-xl { font-size: 1.25rem; }
+.text-lg { font-size: 1.125rem; }
+
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-medium { font-weight: 500; } /* Para el componente Skills */
+
+/* =====================================
+   LAYOUT PRINCIPAL
+   ===================================== */
+
+/* Header (fixed top-0 w-full backdrop-blur-xl bg-white/5 border-b border-white/10 z-50) */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    backdrop-filter: blur(1rem); /* backdrop-blur-xl */
+    background-color: rgba(255, 255, 255, 0.05); /* bg-white/5 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* border-b border-white/10 */
+}
+
+/* Nav (container mx-auto px-6 py-4 flex justify-between items-center) */
+header nav {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 1.5rem; /* py-4 px-6 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Título de Navegación */
+header h1 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 700; /* font-bold */
+    letter-spacing: -0.025em; /* tracking-tight */
+}
+
+/* Menú de Navegación (ul) */
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none; /* hidden */
+    gap: 2rem; /* gap-8 */
+    font-size: 0.875rem; /* text-sm */
+}
+
+/* Media Query para escritorio (md:flex) */
+@media (min-width: 768px) {
+    header ul {
+        display: flex;
+    }
+}
+
+/* Links de Navegación (a) */
+header ul li a {
+    color: var(--text-primary);
+    transition: color 0.15s ease-in-out; /* transition */
+}
+
+header ul li a:hover {
+    color: var(--color-blue-light); /* hover:text-blue-400 */
+}
+
+/* Main Content (pt-28) */
+main {
+    padding-top: 7rem; /* Aproximado a pt-28 */
+}
+
+/* Footer (text-center py-6 text-sm text-gray-400) */
+footer {
+    text-align: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem; /* py-6 */
+    font-size: 0.875rem; /* text-sm */
+    color: var(--text-secondary); /* text-gray-400 */
+}
+
+/* =====================================
+   ESTILOS DE EFECTOS (Spotlight, Particles, Loader)
+   ===================================== */
+
+/* Particles Canvas */
+.particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2; /* opacity-20 */
+    pointer-events: none;
+}
+
+/* Spotlight Div */
+.spotlight-div {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    transition: duration 0.3s; /* transition duration-300 */
+    /* El estilo de fondo (radial-gradient) se aplica inline en el componente */
+}
+
+/* Loader */
+.loader-container {
+    position: fixed;
+    inset: 0;
+    background-color: var(--bg-extradark); /* bg-gray-950 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* z-[9999] */
+}
+
+.loader-text {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+}

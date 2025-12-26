@@ -1,5 +1,5 @@
 ---
-import MainLayout from '../components/MainLayout.astro';
+import MainLayout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.jsx';
 import About from '../components/About.jsx';
 import Skills from '../components/Skills.jsx';
@@ -7,10 +7,13 @@ import Projects from '../components/Projects.jsx';
 import Contact from '../components/Contact.jsx';
 ---
 
-<MainLayout title="Portafolio - Miguel López">
+<MainLayout 
+  title="Miguel López - Desarrollador Full Stack Junior | Portfolio"
+  description="Portfolio profesional de Miguel López, desarrollador junior especializado en React, Astro y Node.js. Disponible para oportunidades laborales."
+>
   <Hero client:load />
-  <About client:visible />
-  <Skills client:visible />
-  <Projects client:visible />
-  <Contact client:visible />
+  <About client:load />
+  <Skills client:load />
+  <Projects client:load />
+  <Contact client:load />
 </MainLayout>

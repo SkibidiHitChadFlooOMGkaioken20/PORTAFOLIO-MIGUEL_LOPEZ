@@ -1,64 +1,202 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.jsx';
 import About from '../components/About.jsx';
 import Skills from '../components/Skills.jsx';
 import Projects from '../components/Projects.jsx';
 import Contact from '../components/Contact.jsx';
+import Particles from '../components/effects/Particles.jsx';
+import Spotlight from '../components/effects/Spotlight.jsx';
+import Loader from '../components/effects/Loader.jsx';
 
-import Particles from './effects/Particles.jsx';
-import Spotlight from './effects/Spotlight.jsx';
-import Loader from './effects/Loader.jsx';
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
 
-const { title = "Portafolio" } = Astro.props;
+const { 
+  title = "Miguel López - Desarrollador Full Stack Junior | Portfolio",
+  description = "Portfolio de Miguel López, desarrollador full stack junior especializado en React, Astro, Node.js. Estudiante DAM buscando oportunidades profesionales.",
+  image = "/og-image.jpg"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
+<!DOCTYPE html>
 <html lang="es">
   <head>
+    <!-- Meta básicos -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO básico -->
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Miguel López" />
+    <meta name="keywords" content="desarrollador, full stack, React, Node.js, JavaScript, portfolio, DAM, junior developer, Valencia" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.url)} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="/src/styles/globals.css" />
-
-    <!-- Fuente elegante -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap">
+    <link rel="stylesheet" href="/src/styles/components.css" />
+    
+    <!-- Theme Script (previene flash) -->
+    <script is:inline>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    
+    <!-- Structured Data (JSON-LD) para SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Miguel López",
+        "jobTitle": "Desarrollador Full Stack Junior",
+        "url": "https://tudominio.com",
+        "sameAs": [
+          "https://github.com/tuusuario",
+          "https://linkedin.com/in/tuusuario"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Valencia",
+          "addressCountry": "ES"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Desarrollo de Aplicaciones Multiplataforma"
+        }
+      }
+    </script>
   </head>
 
-  <script>
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  </script>
-  
-  <body class="bg-gray-950 dark:bg-gray-50 text-white dark:text-gray-900">
-    <header class="fixed top-0 w-full backdrop-blur-xl bg-white/5 border-b border-white/10 z-50">
-      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold tracking-tight">Miguel López</h1>
-
-        <ul class="hidden md:flex gap-8 text-sm">
-          <li><a class="hover:text-blue-400 transition" href="#about">Sobre mí</a></li>
-          <li><a class="hover:text-blue-400 transition" href="#skills">Skills</a></li>
-          <li><a class="hover:text-blue-400 transition" href="#projects">Proyectos</a></li>
-          <li><a class="hover:text-blue-400 transition" href="#contact">Contacto</a></li>
+  <body class="bg-gray-950 text-white antialiased">
+    <!-- Header/Navigation -->
+    <header class="main-header">
+      <nav class="main-nav">
+        <h1 class="nav-title">Miguel López</h1>
+        <ul class="nav-menu">
+          <li><a class="nav-link" href="#about">Sobre mí</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#projects">Proyectos</a></li>
+          <li><a class="nav-link" href="#contact">Contacto</a></li>
         </ul>
       </nav>
     </header>
+    
+    <!-- Efectos visuales -->
     <Particles client:load />
     <Spotlight client:load />
     <Loader client:load />
-    <main class="pt-28">
+    
+    <!-- Contenido principal -->
+    <main class="main-content-padding">
       <slot />
     </main>
 
-    <footer class="text-center py-6 text-sm text-gray-400">
-      © 2024 Miguel López — Todos los derechos reservados.
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="max-w-6xl mx-auto">
+        <p>© 2025 Miguel López — Desarrollador Full Stack Junior</p>
+        <p class="text-sm mt-2 text-gray-500">
+          Hecho con ❤️ usando Astro + React
+        </p>
+      </div>
     </footer>
+    
+    <!-- Scripts de analytics (descomenta cuando tengas tu código) -->
+    <!-- 
+    <script defer data-domain="tudominio.com" src="https://plausible.io/js/script.js"></script>
+    -->
+    
+    <!-- Smooth scroll -->
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: white;
+  }
+  
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+  }
+</style>

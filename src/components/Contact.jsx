@@ -27,7 +27,7 @@ export default function Contact() {
 
     try {
       // OPCIÓN 1: Usar FormSubmit (sin configuración backend)
-      const response = await fetch("https://formsubmit.co/ajax/tuemail@example.com", {
+      const response = await fetch("https://formsubmit.co/ajax/miguellv2005@gmail.com", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -71,19 +71,19 @@ export default function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "miguel.lopez@example.com",
-      href: "mailto:miguel.lopez@example.com"
+      value: "miguellv2005@gmail.com",
+      href: "mailto:miguellv2005@gmail.com"
     },
     {
       icon: Phone,
       label: "Teléfono",
-      value: "+34 XXX XXX XXX",
-      href: "tel:+34XXXXXXXXX"
+      value: "+34 622 774 069",
+      href: "tel:+34 622 774 069"
     },
     {
       icon: MapPin,
-      label: "Ubicación",
-      value: "Valencia, España",
+      label: "Orihuela",
+      value: "Alicante, España",
       href: null
     }
   ];

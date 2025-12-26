@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import "../styles/components.css"; // Asegúrate de que la ruta es correcta
+import { link } from "framer-motion/client";
 
 const data = [
-  { title: "Proyecto 1", desc: "Descripción del proyecto." },
-  { title: "Proyecto 2", desc: "Descripción del proyecto." },
-  { title: "Proyecto 3", desc: "Descripción del proyecto." },
+  { title: "Asistente Personal App", desc: "Aplicación de asistente personal en desarrollo en Kotlin para android" },
+  { title: "Web de investigacion", desc: "Pagina de invesigación sobre el patrón de arquitectura MVVM.", link:"https://skibidihitchadflooomgkaioken20.github.io/ReactConRest-GraphQL-ECS/" },
 ];
 
 export default function Projects() {

@@ -52,8 +52,8 @@ export default function About() {
             <div className="about-avatar">
               {/* Puedes poner tu foto aquí */}
               <img 
-                src="/images/profile.jpg" 
-                alt="Miguel López"
+                src="/public/images/fotoperfil.png"
+                alt="fotoperfil"
                 onError={(e) => {
                   e.target.style.display = 'none';
                   e.target.parentElement.innerHTML = '<div style="font-size: 4rem;">👨‍💻</div>';
@@ -82,7 +82,7 @@ export default function About() {
               <p>
                 Fuera del horario académico, dedico mi tiempo a desarrollar proyectos personales que me permiten 
                 aplicar y expandir mis conocimientos. Estoy especialmente interesado en el <strong className="text-white">desarrollo 
-                web full-stack</strong> y en crear experiencias de usuario intuitivas y atractivas.
+                full-stack</strong> y en crear experiencias de usuario intuitivas y atractivas.
               </p>
               
               <p>

@@ -4,9 +4,9 @@ import { Github, Linkedin, Mail, FileText, ArrowDown } from "lucide-react";
 
 export default function Hero() {
   const socialLinks = [
-    { icon: Github, href: "https://github.com/tuusuario", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/tuusuario", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:tu@email.com", label: "Email" },
+    { icon: Github, href: "https://github.com/SkibidiHitChadFlooOMGkaioken20", label: "GitHub" },
+    { icon: Linkedin, href: "www.linkedin.com/in/miguel-lópez-b3a85339a", label: "LinkedIn" },
+    { icon: Mail, href: "miguellv2005@gmail.com", label: "Email" },
     { icon: FileText, href: "/cv.pdf", label: "CV", download: true }
   ];
 
@@ -44,8 +44,8 @@ export default function Hero() {
           transition={{ delay: 0.3 }}
           className="hero-subtitle"
         >
-          Desarrollador Full Stack Junior especializado en crear experiencias web modernas
-          con React, Astro y Node.js
+          Desarrollador Full Stack Junior especializado en desarrollo app y web moderno
+          con tecnologías como Java & Kotlin, JavaScript (React), Astro.
         </motion.p>
 
         {/* Botones de acción */}
@@ -67,7 +67,7 @@ export default function Hero() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="hero-button-secondary"
+            className="hero-button"
             href="#contact"
           >
             Contactar
